@@ -4,21 +4,33 @@ Raspberry Pi、UD-LT2、SORACOM Napter、AWS IoT Core、SORACOM Beamを使い、
 
 ## ハンズオンを始める
 
-**[ハンズオン本編を開く](HANDSON.md)**
+**[概要・学習内容から始める](chapters/overview.md)**
 
-本編は1つのMarkdownにまとまっています。GitHub上で目次から各章へ移動し、上から順番に進めてください。
+各章は独立したMarkdownページです。ページ上部と下部の「前へ」「目次」「次へ」を使い、順番に進めてください。
 
-## 学習の流れ
+## 章一覧
 
-1. [構成を確認する](HANDSON.md#0-構成を確認する)
-2. [ハンズオンを始める前に](HANDSON.md#1-ハンズオンを始める前に)
-3. [Napter経由でRaspberry PiへSSH接続する](HANDSON.md#2-napter経由でraspberry-piへssh接続する)
-4. [AWS IoT Coreへ直接MQTTS接続する](HANDSON.md#3-aws-iot-coreへ直接mqtts接続する)
-5. [Pi上の証明書を削除する](HANDSON.md#4-pi上の証明書を削除する)
-6. [SORACOM Beam経由でAWS IoT Coreへ接続する](HANDSON.md#5-soracom-beam経由でaws-iot-coreへ接続する)
-7. [2つの方式を比較する](HANDSON.md#6-2つの方式を比較する)
-8. [トラブルシューティングと片付け](HANDSON.md#7-トラブルシューティングと片付け)
-9. [講師付録](HANDSON.md#講師付録aaws事前準備)
+### 受講者向け
+
+| 順番 | 章 | 目安 |
+| ---: | --- | ---: |
+| 1 | [概要・学習内容](chapters/overview.md) | 15分 |
+| 2 | [0. 構成を確認する](chapters/00-architecture.md) | 概要に含む |
+| 3 | [1. ハンズオンを始める前に](chapters/01-prerequisites.md) | 15分 |
+| 4 | [2. Napter経由でRaspberry PiへSSH接続する](chapters/02-napter-ssh.md) | 40分 |
+| 5 | [3. AWS IoT Coreへ直接MQTTS接続する](chapters/03-direct-aws-iot.md) | 40分 |
+| 6 | [4. Pi上の証明書を削除する](chapters/04-remove-certificates.md) | 10分 |
+| 7 | [5. SORACOM Beam経由でAWS IoT Coreへ接続する](chapters/05-soracom-beam.md) | 45分 |
+| 8 | [6. 2つの方式を比較する](chapters/06-comparison.md) | 10分 |
+| 9 | [7. トラブルシューティングと片付け](chapters/07-troubleshooting-cleanup.md) | 10分 |
+
+### 講師向け
+
+| 順番 | ページ |
+| ---: | --- |
+| 10 | [講師付録A：AWS事前準備](instructor/appendix-a-aws-preparation.md) |
+| 11 | [講師付録B：実機受入テスト](instructor/appendix-b-acceptance-test.md) |
+| 12 | [参考資料](references.md) |
 
 ## 重要事項
 
@@ -30,5 +42,7 @@ Raspberry Pi、UD-LT2、SORACOM Napter、AWS IoT Core、SORACOM Beamを使い、
 
 | パス | 内容 |
 | --- | --- |
-| [`HANDSON.md`](HANDSON.md) | 受講者向け手順と講師付録 |
+| [`chapters/`](chapters/) | 受講者向けの章別手順 |
+| [`instructor/`](instructor/) | 講師向け付録 |
 | [`assets/`](assets/) | ハンズオン内で使用する構成図 |
+| [`references.md`](references.md) | 公式参考資料 |
