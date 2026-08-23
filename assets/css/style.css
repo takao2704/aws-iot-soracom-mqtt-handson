@@ -218,6 +218,7 @@ a:focus-visible, button:focus-visible {
   font-size: clamp(36px, 5vw, 60px);
   line-height: 1.12;
   letter-spacing: -.045em;
+  text-wrap: balance;
 }
 
 .content > h1:first-of-type + h2 {
@@ -373,6 +374,7 @@ a:focus-visible, button:focus-visible {
 @media (max-width: 520px) {
   body { font-size: 15px; }
   .hero-actions { display: grid; grid-template-columns: 1fr; }
+  .content > h1:first-of-type { font-size: 32px; line-height: 1.16; }
   .content th, .content td { padding: 9px 10px; font-size: 12.5px; }
   .content pre { margin-inline: -8px; padding: 18px 48px 18px 14px; font-size: 12px; }
 }
@@ -381,4 +383,3 @@ a:focus-visible, button:focus-visible {
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: .01ms !important; }
 }
-
