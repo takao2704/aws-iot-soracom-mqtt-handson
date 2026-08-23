@@ -4,6 +4,8 @@
 
 管理経路とデータ経路を分けて考えます。NapterはSSH操作のための管理経路です。MQTTメッセージはNapterを通りません。
 
+構成図の編集には、[PowerPoint版（3スライド）](../diagrams/mqtt-handson-architecture.pptx)を使用してください。
+
 ## 管理経路：Napter経由SSH
 
 ![操作PCからNapterとUD-LT2のDNATを経由してRaspberry PiへSSH接続する管理経路](../assets/remote-access.png)
