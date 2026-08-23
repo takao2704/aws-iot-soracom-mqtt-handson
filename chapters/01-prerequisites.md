@@ -1,6 +1,6 @@
 # 1. ハンズオンを始める前に
 
-[← 前へ：0. 構成を確認する](00-architecture.md) | [目次](../README.md#章一覧) | [次へ：2. Napter経由でRaspberry PiへSSH接続する →](02-napter-ssh.md)
+[← 前へ：MQTTの基本と通信レイヤー](mqtt-basics-and-layers.md) | [目次](../README.md#章一覧) | [次へ：2. Napter経由でRaspberry PiへSSH接続する →](02-napter-ssh.md)
 
 Duration: 15:00
 
@@ -38,4 +38,4 @@ Duration: 15:00
 
 ---
 
-[← 前へ：0. 構成を確認する](00-architecture.md) | [目次](../README.md#章一覧) | [次へ：2. Napter経由でRaspberry PiへSSH接続する →](02-napter-ssh.md)
+[← 前へ：MQTTの基本と通信レイヤー](mqtt-basics-and-layers.md) | [目次](../README.md#章一覧) | [次へ：2. Napter経由でRaspberry PiへSSH接続する →](02-napter-ssh.md)

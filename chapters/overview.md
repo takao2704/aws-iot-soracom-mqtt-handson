@@ -16,6 +16,7 @@
 Raspberry PiをLTEルーター配下に接続し、SORACOM Napter経由で安全にSSH操作できる環境を作ります。その後、同じAWS IoT CoreのThing・証明書・トピックを使い、通信方式だけを切り替えます。
 
 * Napter経由で、インターネット側から直接公開せずにRaspberry PiへSSH接続する
+* MQTTのPublish、Subscribe、Topic、Payload、QoSと通信レイヤーの関係を説明できるようになる
 * AWS IoT CoreへMQTTSで直接接続し、PiがX.509証明書と秘密鍵を保持する方式を体験する
 * Pi上の証明書を削除し、SORACOM Beamが証明書を保持する方式へ切り替える
 * PublishとSubscribeの両方向を確認し、TLS終端と運用責任の違いを説明できるようになる
@@ -28,7 +29,7 @@ Raspberry PiをLTEルーター配下に接続し、SORACOM Napter経由で安全
 
 | フェーズ | 目安 |
 | :---- | :---- |
-| 概要・構成比較 | 15分 |
+| 概要・MQTT基礎・構成比較 | 15分 |
 | UD-LT2、SIM、Napter経由SSH | 40分 |
 | AWS IoT Core直結MQTTS | 40分 |
 | 証明書削除・方式切替 | 10分 |

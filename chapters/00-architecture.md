@@ -1,6 +1,6 @@
 # 0. 構成を確認する
 
-[← 前へ：概要・学習内容](overview.md) | [目次](../README.md#章一覧) | [次へ：1. ハンズオンを始める前に →](01-prerequisites.md)
+[← 前へ：概要・学習内容](overview.md) | [目次](../README.md#章一覧) | [次へ：MQTTの基本と通信レイヤー →](mqtt-basics-and-layers.md)
 
 管理経路とデータ経路を分けて考えます。NapterはSSH操作のための管理経路です。MQTTメッセージはNapterを通りません。
 
@@ -26,4 +26,4 @@ Raspberry Piは証明書を指定せずbeam.soracom.io:1883へMQTT 3.1.1で接�
 
 ---
 
-[← 前へ：概要・学習内容](overview.md) | [目次](../README.md#章一覧) | [次へ：1. ハンズオンを始める前に →](01-prerequisites.md)
+[← 前へ：概要・学習内容](overview.md) | [目次](../README.md#章一覧) | [次へ：MQTTの基本と通信レイヤー →](mqtt-basics-and-layers.md)

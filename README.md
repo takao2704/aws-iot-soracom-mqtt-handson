@@ -16,21 +16,22 @@ Raspberry Pi、UD-LT2、SORACOM Napter、AWS IoT Core、SORACOM Beamを使い、
 | ---: | --- | ---: |
 | 1 | [概要・学習内容](chapters/overview.md) | 15分 |
 | 2 | [0. 構成を確認する](chapters/00-architecture.md) | 概要に含む |
-| 3 | [1. ハンズオンを始める前に](chapters/01-prerequisites.md) | 15分 |
-| 4 | [2. Napter経由でRaspberry PiへSSH接続する](chapters/02-napter-ssh.md) | 40分 |
-| 5 | [3. AWS IoT Coreへ直接MQTTS接続する](chapters/03-direct-aws-iot.md) | 40分 |
-| 6 | [4. Pi上の証明書を削除する](chapters/04-remove-certificates.md) | 10分 |
-| 7 | [5. SORACOM Beam経由でAWS IoT Coreへ接続する](chapters/05-soracom-beam.md) | 45分 |
-| 8 | [6. 2つの方式を比較する](chapters/06-comparison.md) | 10分 |
-| 9 | [7. トラブルシューティングと片付け](chapters/07-troubleshooting-cleanup.md) | 10分 |
+| 3 | [MQTTの基本と通信レイヤー](chapters/mqtt-basics-and-layers.md) | 概要に含む |
+| 4 | [1. ハンズオンを始める前に](chapters/01-prerequisites.md) | 15分 |
+| 5 | [2. Napter経由でRaspberry PiへSSH接続する](chapters/02-napter-ssh.md) | 40分 |
+| 6 | [3. AWS IoT Coreへ直接MQTTS接続する](chapters/03-direct-aws-iot.md) | 40分 |
+| 7 | [4. Pi上の証明書を削除する](chapters/04-remove-certificates.md) | 10分 |
+| 8 | [5. SORACOM Beam経由でAWS IoT Coreへ接続する](chapters/05-soracom-beam.md) | 45分 |
+| 9 | [6. 2つの方式を比較する](chapters/06-comparison.md) | 10分 |
+| 10 | [7. トラブルシューティングと片付け](chapters/07-troubleshooting-cleanup.md) | 10分 |
 
 ### 講師向け
 
 | 順番 | ページ |
 | ---: | --- |
-| 10 | [講師付録A：AWS事前準備](instructor/appendix-a-aws-preparation.md) |
-| 11 | [講師付録B：実機受入テスト](instructor/appendix-b-acceptance-test.md) |
-| 12 | [参考資料](references.md) |
+| 11 | [講師付録A：AWS事前準備](instructor/appendix-a-aws-preparation.md) |
+| 12 | [講師付録B：実機受入テスト](instructor/appendix-b-acceptance-test.md) |
+| 13 | [参考資料](references.md) |
 
 ## 重要事項
 

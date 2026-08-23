@@ -4,6 +4,8 @@
 
 Duration: 40:00
 
+コマンドに登場する`-i`、`-t`、`-q`やTLSオプションの意味は、[MQTTの基本と通信レイヤー](mqtt-basics-and-layers.md#mosquittoコマンドとの対応)を参照してください。
+
 ## 3.1 MQTTクライアントを導入する
 
 ```bash
