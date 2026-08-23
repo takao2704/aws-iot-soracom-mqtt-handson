@@ -1,10 +1,6 @@
----
-layout: default
-title: SORACOM Napter・AWS IoT Core・SORACOM Beamで学ぶMQTTハンズオン
-description: Raspberry Pi、UD-LT2、SORACOM Napter、AWS IoT Core、SORACOM Beamを使ってMQTTと証明書配置の違いを学ぶ3時間ハンズオン
----
+# SORACOM Napter・AWS IoT Core・SORACOM Beamで学ぶMQTTハンズオン
 
-# SORACOM Napter・AWS IoT Core・SORACOM Beamで学ぶMQTTハンズオン {#top}
+[← リポジトリのトップへ戻る](README.md)
 
 ## Raspberry Piの遠隔保守から、証明書配置の違いを学ぶ3時間コース
 
@@ -15,7 +11,22 @@ description: Raspberry Pi、UD-LT2、SORACOM Napter、AWS IoT Core、SORACOM Bea
 | 対象 | MQTT、TLS、AWS IoT Coreをこれから学ぶ方 |
 | 前提 | AWS側は講師が事前準備。受講者はPi、UD-LT2、SORACOMを操作 |
 
-# このハンズオンで学ぶこと {#overview}
+## 目次
+
+1. [このハンズオンで学ぶこと](#このハンズオンで学ぶこと)
+2. [0. 構成を確認する](#0-構成を確認する)
+3. [1. ハンズオンを始める前に](#1-ハンズオンを始める前に)
+4. [2. Napter経由でRaspberry PiへSSH接続する](#2-napter経由でraspberry-piへssh接続する)
+5. [3. AWS IoT Coreへ直接MQTTS接続する](#3-aws-iot-coreへ直接mqtts接続する)
+6. [4. Pi上の証明書を削除する](#4-pi上の証明書を削除する)
+7. [5. SORACOM Beam経由でAWS IoT Coreへ接続する](#5-soracom-beam経由でaws-iot-coreへ接続する)
+8. [6. 2つの方式を比較する](#6-2つの方式を比較する)
+9. [7. トラブルシューティングと片付け](#7-トラブルシューティングと片付け)
+10. [講師付録A：AWS事前準備](#講師付録aaws事前準備)
+11. [講師付録B：実機受入テスト](#講師付録b実機受入テスト)
+12. [参考資料](#参考資料)
+
+# このハンズオンで学ぶこと
 
 Raspberry PiをLTEルーター配下に接続し、SORACOM Napter経由で安全にSSH操作できる環境を作ります。その後、同じAWS IoT CoreのThing・証明書・トピックを使い、通信方式だけを切り替えます。
 
@@ -40,26 +51,26 @@ Raspberry PiをLTEルーター配下に接続し、SORACOM Napter経由で安全
 | 比較・トラブル対応・片付け | 20分 |
 | 進行バッファ | 10分 |
 
-# 0\. 構成を確認する {#section-0}
+# 0. 構成を確認する
 
 管理経路とデータ経路を分けて考えます。NapterはSSH操作のための管理経路です。MQTTメッセージはNapterを通りません。
 
 ## 管理経路：Napter経由SSH
 
-![操作PCからNapterとUD-LT2のDNATを経由してRaspberry PiへSSH接続する管理経路]({{ '/assets/remote-access.png' | relative_url }})  
+![操作PCからNapterとUD-LT2のDNATを経由してRaspberry PiへSSH接続する管理経路](assets/remote-access.png)
 操作PCからNapterの一時的なホスト名とポートへSSH接続し、UD-LT2のDNAT設定を経由してRaspberry Piの22番ポートへ到達します。暗号化はSSHの両端で行われます。
 
 ## データ経路A：AWS IoT Coreへ直結
 
-![Raspberry Piが証明書を保持しAWS IoT Coreへ8883番ポートでMQTTS接続する経路]({{ '/assets/direct-mqtt.png' | relative_url }})  
+![Raspberry Piが証明書を保持しAWS IoT Coreへ8883番ポートでMQTTS接続する経路](assets/direct-mqtt.png)
 Raspberry Piがデバイス証明書、秘密鍵、Amazon Root CA 1を保持し、AWS IoT CoreのATSエンドポイントへ8883/MQTTSで接続します。
 
 ## データ経路B：SORACOM Beam経由
 
-![Raspberry PiからBeamへMQTT接続しBeamからAWS IoT CoreへMQTTS接続する経路]({{ '/assets/beam-mqtt.png' | relative_url }})  
+![Raspberry PiからBeamへMQTT接続しBeamからAWS IoT CoreへMQTTS接続する経路](assets/beam-mqtt.png)
 Raspberry Piは証明書を指定せずbeam.soracom.io:1883へMQTT 3.1.1で接続します。BeamがSORACOM認証情報ストアの証明書を使い、AWS IoT Coreへ8883/MQTTSで接続します。
 
-# 1\. ハンズオンを始める前に {#section-1}
+# 1. ハンズオンを始める前に
 
 Duration: 15:00
 
@@ -87,7 +98,7 @@ Duration: 15:00
 ## 証明書パッケージの内容
 
 * device-certificate.pem.crt：AWS IoT Coreのデバイス証明書  
-* private.pem.key：秘密鍵。チャット、共有メモ、Googleドキュメントへ貼り付けない  
+* private.pem.key：秘密鍵。チャットや共有ドキュメントへ貼り付けない
 * AmazonRootCA1.pem：AWS IoT Coreのサーバー証明書を検証するルートCA  
 * kit-info.txt：Thing名、AWS IoT ATSエンドポイント、Publish/Subscribeトピック
 
@@ -95,7 +106,7 @@ Duration: 15:00
 
 本ハンズオンではSORACOM Air、Napter、Beam、AWS IoT Coreを使用します。実施時点の公式料金を確認してください。秘密鍵はキット固有とし、終了後にAWS証明書を無効化します。
 
-# 2\. Napter経由でRaspberry PiへSSH接続する {#section-2}
+# 2. Napter経由でRaspberry PiへSSH接続する
 
 Duration: 40:00
 
@@ -163,7 +174,7 @@ sudo ss -lntp | grep ':22'
 
 時刻が大きくずれている場合はMQTTSの証明書検証に失敗します。先へ進む前に講師へ連絡してください。
 
-# 3\. AWS IoT Coreへ直接MQTTS接続する {#section-3}
+# 3. AWS IoT Coreへ直接MQTTS接続する
 
 Duration: 40:00
 
@@ -238,7 +249,7 @@ mosquitto_sub -d -V mqttv311 \
 
 講師が同じキットのcommandトピックへ{"action":"ping","from":"aws-console"}をPublishします。PiにJSONが1件表示され、コマンドが終了すれば双方向確認は成功です。
 
-# 4\. Pi上の証明書を削除する {#section-4}
+# 4. Pi上の証明書を削除する
 
 Duration: 10:00
 
@@ -265,7 +276,7 @@ find ~ -maxdepth 2 -type f \
 
 何も表示されないことを確認します。操作PC側の証明書パッケージは、次のSORACOM認証情報登録に使用するため、まだ削除しません。
 
-# 5\. SORACOM Beam経由でAWS IoT Coreへ接続する {#section-5}
+# 5. SORACOM Beam経由でAWS IoT Coreへ接続する
 
 Duration: 45:00
 
@@ -325,7 +336,7 @@ mosquitto_sub -d -V mqttv311 \
 
 講師がcommandトピックへ{"action":"ping","from":"aws-console"}をPublishし、Piに1件表示されればBeam経由の双方向確認は成功です。
 
-# 6\. 2つの方式を比較する {#section-6}
+# 6. 2つの方式を比較する
 
 Duration: 10:00
 
@@ -345,7 +356,7 @@ Duration: 10:00
 * NapterのSSH管理経路とMQTTデータ経路は、どこで分離されていますか  
 * MQTT Client IDとThing名を一致させる理由を、IoTポリシーのiot:Connectと関連付けて説明してください
 
-# 7\. トラブルシューティングと片付け {#section-7}
+# 7. トラブルシューティングと片付け
 
 Duration: 10:00
 
@@ -379,7 +390,7 @@ Duration: 10:00
 * AWS IoT MQTTテストクライアントのSubscribeを終了する  
 * 各キットの完了結果と片付け結果だけを記録し、秘密鍵やIMSIを記録しない
 
-# 講師付録A：AWS事前準備 {#appendix-a}
+# 講師付録A：AWS事前準備
 
 ## A.1 キット単位のAWS IoTリソース
 
@@ -435,7 +446,7 @@ Duration: 10:00
 * 下り確認：mqtt-handson/kitNN/commandへキット別にPublishする  
 * 終了後：証明書を無効化し、SORACOM側の認証情報削除を確認する
 
-# 講師付録B：実機受入テスト {#appendix-b}
+# 講師付録B：実機受入テスト
 
 本番開催前に1キットで、Napter SSH、直結Publish/Subscribe、Pi上の証明書削除、Beam Publish/Subscribe、全リソースの片付けまで通しで確認します。仕様確認だけで完了扱いにしません。
 
@@ -448,9 +459,9 @@ Duration: 10:00
 * Pi上の証明書3ファイルが削除されている  
 * 証明書オプションなしのBeam PublishをAWS IoT Coreで受信できる  
 * Beam Subscribeで講師のメッセージを受信できる  
-* 原本Googleドキュメント、秘密鍵、IMSI、実AWSアカウントIDを配布資料へ混入させていない
+* 秘密鍵、IMSI、実AWSアカウントIDを配布資料へ混入させていない
 
-# 参考資料 {#references}
+# 参考資料
 
 [SORACOM Napter：IoTデバイスにSSH接続する](https://users.soracom.io/ja-jp/docs/napter/login-with-ssh/)  
 [SORACOM：UD-LT2に接続したデバイスへ遠隔アクセスする](https://users.soracom.io/ja-jp/guides/devices/ud-lt2/forwarding-settings/)  
