@@ -4,6 +4,7 @@
 
 - [SORACOM Napter：IoTデバイスにSSH接続する](https://users.soracom.io/ja-jp/docs/napter/login-with-ssh/)
 - [SORACOM：UD-LT2に接続したデバイスへ遠隔アクセスする](https://users.soracom.io/ja-jp/guides/devices/ud-lt2/forwarding-settings/)
+- [SORACOM Air：メタデータサービスを利用する](https://users.soracom.io/ja-jp/docs/air/use-metadata/)
 - [SORACOM Beam：AWS IoTと接続する](https://users.soracom.io/ja-jp/docs/beam/aws-iot-console/)
 - [SORACOM：MQTTクライアントツールを利用する](https://users.soracom.io/ja-jp/guides/other-services/tools/mosquitto-clients/)
 - [SORACOM Beam：MQTTエントリポイント](https://users.soracom.io/ja-jp/docs/beam/mqtt/)

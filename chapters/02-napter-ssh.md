@@ -70,6 +70,33 @@ sudo ss -lntp | grep ':22'
 
 時刻が大きくずれている場合はMQTTSの証明書検証に失敗します。先へ進む前に講師へ連絡してください。
 
+## 2.8 IoT SIMの回線情報を確認する
+
+SORACOMのメタデータサービスへ、UD-LT2配下のRaspberry Piからアクセスします。次のコマンドは、ハンズオンで必要な項目だけを個別に取得します。
+
+```bash
+printf 'SIM name: '
+curl -sS http://metadata.soracom.io/v1/subscriber.tags.name
+echo
+
+printf 'Subscription: '
+curl -fsS http://metadata.soracom.io/v1/subscriber.subscription
+echo
+
+printf 'Online: '
+curl -fsS http://metadata.soracom.io/v1/subscriber.sessionStatus.online
+echo
+
+printf 'Speed class: '
+curl -fsS http://metadata.soracom.io/v1/subscriber.speedClass
+echo
+
+```
+
+`Online` が `true` であることを確認します。`SIM name` が空の場合やエラーになる場合は、SIM管理画面で名前が設定されているか確認してください。名前を取得できなくても、ほかの3項目を取得できれば先へ進めます。
+
+> **注意：** `/v1/subscriber` 全体の応答にはIMSI、MSISDN、IMEIなどの識別子が含まれます。本ハンズオンでは画面共有やログへの混入を避けるため、全体を表示せず、上記のクエリー用URLだけを使用します。
+
 ---
 
 [← 前へ：1. ハンズオンを始める前に](01-prerequisites.md) | [目次](../README.md#章一覧) | [次へ：3. AWS IoT Coreへ直接MQTTS接続する →](03-direct-aws-iot.md)

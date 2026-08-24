@@ -7,6 +7,7 @@
 ## 合格条件
 
 * Napter経由でPiへSSHできる
+* 対象SIMのメタデータサービスが読み取り専用で有効になっており、Piから回線のオンライン状態を取得できる
 * Piの時刻とDNSが正常で、AWS IoT ATSエンドポイントへ到達できる
 * 直結PublishをAWS IoT Coreで受信できる
 * 直結Subscribeで講師のメッセージを受信できる
