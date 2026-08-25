@@ -43,8 +43,8 @@ Raspberry Pi、UD-LT2、SORACOM Napter、AWS IoT Core、SORACOM Beamを使い、
 
 | パス | 内容 |
 | --- | --- |
-| [`chapters/`](chapters/) | 受講者向けの章別手順 |
-| [`instructor/`](instructor/) | 講師向け付録 |
-| [`assets/`](assets/) | ハンズオン内で使用する構成図 |
+| `chapters/` | 受講者向けの章別手順 |
+| `instructor/` | 講師向け付録 |
+| `assets/` | ハンズオン内で使用する構成図 |
 | [`diagrams/mqtt-handson-architecture.pptx`](diagrams/mqtt-handson-architecture.pptx) | 3つの構成図を編集できるPowerPointファイル |
 | [`references.md`](references.md) | 公式参考資料 |
