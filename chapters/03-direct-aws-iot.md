@@ -81,7 +81,7 @@ mosquitto_sub -d -V mqttv311 \
 
 ```
 
-講師が同じキットのcommandトピックへ{"action":"ping","from":"aws-console"}をPublishします。PiにJSONが1件表示され、コマンドが終了すれば双方向確認は成功です。
+講師が同じキットのcommandトピックへ `{"action":"ping","from":"aws-console"}` をPublishします。PiにJSONが1件表示され、コマンドが終了すれば双方向確認は成功です。
 
 ---
 

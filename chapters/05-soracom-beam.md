@@ -63,7 +63,7 @@ mosquitto_sub -d -V mqttv311 \
 
 ```
 
-講師がcommandトピックへ{"action":"ping","from":"aws-console"}をPublishし、Piに1件表示されればBeam経由の双方向確認は成功です。
+講師がcommandトピックへ `{"action":"ping","from":"aws-console"}` をPublishし、Piに1件表示されればBeam経由の双方向確認は成功です。
 
 ---
 
